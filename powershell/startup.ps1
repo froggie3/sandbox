@@ -1,16 +1,24 @@
-# ‚±‚ÌPowerShellƒXƒNƒŠƒvƒg‚Í -windowstyle hidden ƒIƒvƒVƒ‡ƒ“‚ğ‚Â‚¯‚ÄÀs‚³‚ê‚é‚×‚«
+# ã“ã®PowerShellã‚¹ã‚¯ãƒªãƒ—ãƒˆã¯ -windowstyle hidden ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚’ã¤ã‘ã¦å®Ÿè¡Œã•ã‚Œã‚‹ã¹ã
 
-# ‘ÎÛƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğƒoƒbƒNƒOƒ‰ƒEƒ“ƒh‚Å‹N“®‚·‚é•û–@
+# å¯¾è±¡ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ãƒãƒƒã‚¯ã‚°ãƒ©ã‚¦ãƒ³ãƒ‰ã§èµ·å‹•ã™ã‚‹æ–¹æ³•
 # https://cheshire-wara.com/powershell/ps-cmdlets/system-service/start-process-window/
 
-# VBoxManage list vms ‚Å‹N“®‰Â”\‚È VM ‚ğŠm”F‰Â”\
+# VBoxManage list vms ã§èµ·å‹•å¯èƒ½ãª VM ã‚’ç¢ºèªå¯èƒ½
 
 
 $vBoxDirectory = 'C:\Program Files\Oracle\VirtualBox\'
+$damareDirectory = 'C:\mnt1\utl\Damare'
 $favoriteVMname = 'yokkin.com (21.10)'
 
 $startup = "C:\Program Files (x86)\ASRock Utility\Phantom Gaming Tuning\Bin\PGTU.exe", "C:\Program Files\AMD\RyzenMaster\bin\AMD Ryzen Master.exe"
 
+function damareStart{
+    chcp 65001
+    Set-Location $damareDirectory
+    yarn start
+}
+
+# damareStart
 
 function startupAppHidden {
     for ($i = 0; $i -lt $startup.Count; $i++) {
@@ -21,7 +29,7 @@ function startupAppHidden {
 startupAppHidden
 
 function startVBox {
-    cd $vBoxDirectory
+    Set-Location $vBoxDirectory
     VBoxManage startvm $favoriteVMname --type headless
 }
 

@@ -3,41 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="css/style.css">
     <title>yokkin.com</title>
 </head>
+<style>
+    body {
+        margin: 0;
+    }
 
+    body * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .box1 {
+        width: 1140px;
+        height: 300px;
+        background-color: rgb(92, 134, 25);
+        padding: 1rem;
+        margin: 0 auto;
+    }
+
+    .box1::after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 300px;
+        background-color: rgb(87, 121, 43);
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        margin: 0 auto;
+    }
+
+    .font-size-big {
+        font-size: 3em;
+    }
+
+    .font-color-white {
+        color: white;
+    }
+</style>
 <body>
     <div class="container">
-        <button onClick="sheepCount();">sheep_count</button><br>
-        <button onClick="evenOdd();">evenOdd</button><br>
-        <button onClick="evenOdd3();">evenOdd3</button><br>
-        <button onClick="toggleOnOff();">toggle on / off</button><br>
-        <button onClick="displayTitleAndDescription();">toggle on / off</button><br>
-        <!-- 
-            CSS Grid
-        -->
-        <div class="wrap-box grid-test">
-            <div class="item">
-                <h2 id="elementTitle">Passing Sight</h2>
-                <div class="media media-1">
-
-                </div>
-                <p id="elementDesctiption">弊サークル「sanctunes」よりリリースされたアルバムになります。3曲目「初夏の街路樹」で参加しています。</p>
-                <p>以下のリンクより無料でダウンロードできます。</p>
-            </div>
-            <div class="item">
-                <h2>TOWN</h2>
-                <div class="media media-1"></div>
-                <p>弊サークル「sanctunes」よりリリースされたアルバムになります。3曲目「初夏の街路樹」で参加しています。</p>
-                <p>以下のリンクより無料でダウンロードできます。</p>
-            </div>
-        </div>   
-    </div>
-
-    <script src="js/script.js"></script>
-    <noscript>
-        <p>このサイトはJavaScriptを使用しています。JavaScriptを有効にしてください。</p>
-    </noscript>
+        <div class="box1">
+            <p class="font-size-big font-color-white">test element</p>
+        </div>
 </body>
 </html>

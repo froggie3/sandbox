@@ -1,16 +1,23 @@
+
 let toggledState;
-
 let i = 0;
-
 const introDuctory = [
     "インターネット上にて活動する音屋、“Yokkin”のWebサイトです。",
     "お知らせや身辺のことを綴っています。",
     "Yokkinへのお問い合わせはこちらのページよりどうぞ。",
-    "このサイトにおけるプライバシーの取り扱い方の方針を示しています。",
-    "Yokkinが作成した著作物の利用規約です。"
 ];
 
-initToggle();
+window.onload = function() {
+    document.getElementById("elementDescription").innerHTML = introDuctory[0];
+    console.log(document.documentURI);
+    
+    function initToggle(){
+        toggledState = Boolean();
+        console.log(toggledState);
+    }
+
+    initToggle();
+};
 
 function displayTitleAndDescription() {
     if (i >= introDuctory.length) {
@@ -19,49 +26,31 @@ function displayTitleAndDescription() {
         console.log("initiated");
     }
 
-    document.getElementById("elementDesctiption");
-    elementDesctiption.innerHTML = introDuctory[i];
+    document.getElementById("elementDescription");
+    elementDescription.innerHTML = introDuctory[i];
     console.log(introDuctory[i]);
     i++;
 }
 
+// 自力で実装したやつ↓
 
-function initToggle(){
-    toggledState = Boolean();
-    console.log(toggledState);
-}
-function toggleOnOff() {
-    if(toggledState) { // if true
+function toggleOnOff2() {
+    let element = document.getElementById("hiddenContent");
+    element.classList.add('hidden');
+
+    if (toggledState) { // if true
         toggledState = Boolean();
+        element.classList.add('hidden');
     } else {
         toggledState = Boolean("a");
+        element.classList.remove('hidden');
     }
     console.log(toggledState);
 }
-function sheepCount() {
-    console.clear();
-    for (var i = 1; i <= 100; i++) {
-        console.log("羊が" + i + "匹、");
-    }
-    console.log("ぐぅ。");
-}
-function evenOdd() {
-    console.clear();
-    for (var i = 1; i <= 10; i++) {
-        console.log(i + "は奇数<br>");
-        i++;
-        console.log(i + "は偶数<br>");
-    }	
-}
-function evenOdd3() {
-    console.clear();
-    for (var i = 1; i <= 10; i++) {
-        if (i % 2 == 0) {
-            console.log(i + "は奇数<br>");
-        } else if (i % 3 == 0) {
-            console.log(i + "は3の倍数<br>");
-        } else {
-            console.log(i + "は偶数<br>");
-        }
-    }
-}
+
+
+let element = document.getElementById("displayGalleryBtn");
+element.addEventListener('click', function() {
+    let object = document.getElementById('hiddenContent') 
+    object.classList.toggle('hidden');
+})
