@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/style.css">
+    <title>yokkin.com</title>
+</head>
+
+<body>
+
+<style>
+:root {
+  --theme-color-blue: #2d4059;
+  --theme-color-red: #bb2a2a;
+  --theme-color-black: #333;
+  --border-color: #eee;
+  --theme-color-pink: #ffb3b3;
+  --theme-color-yellow: #fce100;
+  --font-color-white: #f3f3f3;
+  --background-color: #fff;
+  --default-font-family: Helvetica Neue, Helvetica, Arial,
+    Hiragino Kaku Gothic Pro, Meiryo, MS PGothic, sans-serif;
+  --monospace-font-family: "Roboto Mono";
+  --container-width: 1140px;
+  --medium-viewport-width: 768px;
+  --large-viewport-width: 1024px;
+  --theme-shadow: #00000021 0px 10px 20px;
+}
+
+.box1 {
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    color: #f3f3f3;
+    background-color: #2d4059;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1rem;
+    transition-duration: 200ms;
+}
+
+.box1:hover {
+    background-color: #fff;
+}
+
+.box1::before{
+    content: "‹";
+    color: #fff;
+}
+
+.box1:hover::before{
+    color: #2d4059;
+}
+
+a.box1-inner {
+}
+
+.box1Wrap {
+    display: inline;
+}
+
+</style>
+    
+    
+<div class="box1Wrap">
+    <div class="box1"></div>
+    <a href="#" class="box1-inner">キンタマ爆破してみた</a>
+</div>
+
+</body>
+</html>

@@ -12,11 +12,11 @@ $favoriteVMname = 'yokkin.com (21.10)'
 
 $startup = "C:\Program Files (x86)\ASRock Utility\Phantom Gaming Tuning\Bin\PGTU.exe", "C:\Program Files\AMD\RyzenMaster\bin\AMD Ryzen Master.exe"
 
-function damareStart{
-    chcp 65001
-    Set-Location $damareDirectory
-    yarn start
-}
+# function damareStart{
+#     chcp 65001
+#     Set-Location $damareDirectory
+#     yarn start
+# }
 
 # damareStart
 
