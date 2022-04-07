@@ -3,7 +3,8 @@
 Set-StrictMode -Version Latest
 
 
-## $global:realAge = $null
+$global:realAge = $null
+
 
 function userInput {
     [String] $inputValue = (Read-Host "plz enter ur REAL age")
@@ -12,9 +13,8 @@ function userInput {
 
 $inputValue = userInput      # 入力を $inputValue に代入
 
-# デバッグ用
-# $result = canCast($inputValue)
-# Write-Host $result
+
+
 
 function getRealAge ([string] $s) {
 
@@ -47,6 +47,7 @@ function getRealAge ([string] $s) {
 }
 
 getRealAge $inputValue      # 引数を基に正当性チェック
+
 
 
 function judge ($value) {
