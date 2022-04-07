@@ -1,37 +1,69 @@
-# このPowerShellスクリプトは -windowstyle hidden オプションをつけて実行されるべき
+# This powerShell should be executed with the option: -windowstyle hidden
 
 # 対象アプリケーションをバックグラウンドで起動する方法
 # https://cheshire-wara.com/powershell/ps-cmdlets/system-service/start-process-window/
 
-# VBoxManage list vms で起動可能な VM を確認可能
+# To check VM currently available: VBoxManage list vms
 
 
-$vBoxDirectory = 'C:\Program Files\Oracle\VirtualBox\'
-$damareDirectory = 'C:\mnt1\utl\Damare'
-$favoriteVMname = 'yokkin.com (21.10)'
 
-$startup = "C:\Program Files (x86)\ASRock Utility\Phantom Gaming Tuning\Bin\PGTU.exe", "C:\Program Files\AMD\RyzenMaster\bin\AMD Ryzen Master.exe"
+# $damareDirectory = 'C:\mnt1\utl\Damare'
 
-# function damareStart{
-#     chcp 65001
-#     Set-Location $damareDirectory
-#     yarn start
-# }
+# [string] $startup = "C:\Program Files (x86)\ASRock Utility\Phantom Gaming Tuning\Bin\PGTU.exe", "C:\Program Files\AMD\RyzenMaster\bin\AMD Ryzen Master.exe"
 
-# damareStart
-
-function startupAppHidden {
-    for ($i = 0; $i -lt $startup.Count; $i++) {
-        Start-Process $startup[$i] -WindowStyle Minimized
-    }
+<#
+function damareStart{
+    chcp 65001
+    Set-Location $damareDirectory
+    yarn start
 }
 
-startupAppHidden
+damareStart
+#>
 
-function startVBox {
-    Set-Location $vBoxDirectory
-    VBoxManage startvm $favoriteVMname --type headless
+
+<#
+try {
+    function startupAppHidden {
+        for ($i = 0; $i -lt $startup.Count; $i++) {
+            Start-Process $startup[$i] -WindowStyle Minimized
+        }
+    }
+    startupAppHidden
+} catch {
+    Write-Output "Something went wrong. Apps was not launched." 
+}
+#>
+
+Write-Output "Verifying if the specified machine exists."
+
+function startvBox {
+    [string] $vBoxDirectory = 'C:\Program Files\Oracle\VirtualBox\'
+    [string] $favoriteVMId = '89074768-1d3c-42ed-b9d9-919bf4217a18'     # yokkin.com (21.10)
+    [string] $result = Get-Process -Name VBoxHeadless
+
+    if ($null -eq $result) {
+
+        try {
+
+            Set-Location $vBoxDirectory
+            VBoxManage startvm $favoriteVMId --type headless
+
+        } catch {
+
+            Write-Output "Failed to launch the virtual machine."
+
+        }
+
+    } else {
+        
+        # VM exists in the process
+        Write-Host 'VBox instance already exists.';
+
+    } 
 }
 
 startvBox
+
+exit
 

@@ -1,98 +1,92 @@
-body {
-    margin: 0;
-    padding: 0;
-}
-
-
-body * {
-    word-wrap: anywhere;
-    margin: 0;
-    padding: 0;
-}
-
 .container {
-    display: block;
-    max-width: 1000px;
-    height: 100%;
-    margin: 0 auto;
+  display: block;
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .container-full {
-    display: block;
-    max-width: 100%;
-    height: 100%;
-    margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  margin: 0 auto;
 }
 
 .wrap-box {
-    padding: 2rem;
-    margin: 2rem 0;
-    border: 1px solid #d2d2d2;
+  padding: 2rem;
+  margin: 2rem 0;
+  border: 1px solid #d2d2d2;
 }
 
 @keyframes fade-in {
-    0% {
-      visibility: hidden;
-      opacity: 0;
-    }
-  
-    50% {
-      visibility: visible;
-      opacity: 0.5;
-    }
-  
-    100% {
-      visibility: visible;
-      opacity: 1;
-    }
+  0% {
+    visibility: hidden;
+    opacity: 0;
   }
+
+  50% {
+    visibility: visible;
+    opacity: 0.5;
+  }
+
+  100% {
+    visibility: visible;
+    opacity: 1;
+  }
+}
 @keyframes fade-out {
-    100% {
-      visibility: hidden;
-      opacity: 0;
-    }
-  
-    50% {
-      visibility: visible;
-      opacity: 0.5;
-    }
-  
-    0% {
-      visibility: visible;
-      opacity: 1;
-    }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  50% {
+    visibility: visible;
+    opacity: 0.5;
+  }
+
+  0% {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
-.trans-box2:hover {
-    clip-path: inset(0 0% 0 100%);
-}
 
 .trans-box2 {
-    width: 100%;
-    height: 100%;
-    background: white;
-    display: flex;
-    align-items: center;
-    clip-path: inset(0 0 0 0%);
-    transition-duration: 1000ms;
-    position: absolute;
-    top: 0;
-    left: 0;
+  width: 250px;
+  height: 250px;
+  background: white;
+  display: flex;
+  align-items: center;
+  transition-duration: 500ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.trans-box2 ~ #checkboxAgree:checked{
+  width: 0px;
 }
 
 .trans-box2-wrap {
-    height: 30rem;
-    width: 100%;
-    content: "";
-    background-image: linear-gradient(244deg, #9408ff 25% 35%, transparent);
-    position: relative;
+  width: 250px;
+  height: 250px;
+  content: "";
+  background-image: linear-gradient(244deg, #9408ff 25% 35%, transparent);
+  position: relative;
 }
 
 .trans-box2-inside {
-    margin: 0 auto;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-family: 'Courier New', Courier, monospace;
+  width: 100%;
+  height: 100%;
+}
+
+.trans-box2-inside-text {
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Courier New", Courier, monospace;
 }

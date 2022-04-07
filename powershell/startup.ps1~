@@ -1,0 +1,42 @@
+# このPowerShellスクリプトは -windowstyle hidden オプションをつけて実行されるべき
+
+# 対象アプリケーションをバックグラウンドで起動する方法
+# https://cheshire-wara.com/powershell/ps-cmdlets/system-service/start-process-window/
+
+# VBoxManage list vms で起動可能な VM を確認可能
+
+
+$vBoxDirectory = 'C:\Program Files\Oracle\VirtualBox\'
+# $damareDirectory = 'C:\mnt1\utl\Damare'
+$favoriteVMname = 'yokkin.com (21.10)'
+
+$startup = "C:\Program Files (x86)\ASRock Utility\Phantom Gaming Tuning\Bin\PGTU.exe", "C:\Program Files\AMD\RyzenMaster\bin\AMD Ryzen Master.exe"
+
+# function damareStart{
+#     chcp 65001
+#     Set-Location $damareDirectory
+#     yarn start
+# }
+
+# damareStart
+
+try {
+    function startupAppHidden {
+        for ($i = 0; $i -lt $startup.Count; $i++) {
+            Start-Process $startup[$i] -WindowStyle Minimized
+        }
+    }
+    startupAppHidden
+} catch {
+    Write-Output "Something went wrong. Apps was not launched." 
+}
+
+try {
+    function startVBox {
+        Set-Location $vBoxDirectory
+        VBoxManage startvm $favoriteVMname --type headless
+    }
+    startvBox
+} catch {
+    Write-Output "Failed to launch the virtual machine"
+}
